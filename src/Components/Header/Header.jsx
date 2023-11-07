@@ -4,7 +4,7 @@ import Chart from "react-apexcharts";
 export default function Header() {
   const columnsData = [-50, 20, 165, -30, 110, 80, -70, 165, 90, 70, -95, 100];
   const linesData = [-60, -10, 175, 25, 120, 90, -90, 175, 80, 70, -100, 115];
-  const bg = columnsData.map((el) => (el >= 0 ? "#080008" : "#c587c5"));
+//   const bg = columnsData.map((el) => (el >= 0 ? "#080008" : "#c587c5"));
   // eslint-disable-next-line no-unused-vars
   const [options, setoptions] = useState({
     series: [
@@ -12,13 +12,6 @@ export default function Header() {
         name: "",
         type: "column",
         data: columnsData,
-        // colors: bg,
-        background: bg,
-        dataLabels: {
-          style: {
-            colors: bg,
-          },
-        },
       },
       {
         name: "",
@@ -35,11 +28,10 @@ export default function Header() {
     },
     forecastDataPoints: {
       count: 12,
-      
     },
     stroke: {
-      width: [0, 4],
-      curv: "straight",
+      width: [0, 2],
+      height:[0, 10]
     },
     title: {
       text: "Traffic Sources",
@@ -53,8 +45,23 @@ export default function Header() {
       enabledOnSeries: [1],
     },
     fill: {
-      //   colors: bg,
-      opacity: [0.98, 0.99, 1, 1],
+      type: "solid",
+      pattern: {
+        style: "circles",
+        width: 6,
+        height: 6,
+        strokeWidth: 2,
+      },
+      colors: [
+        function ({ value }) {
+          if (value < 0) {
+            return "#FB4540";
+          } else {
+            return "#0082CC";
+          }
+        },
+      ],
+      //   opacity: [0.98, 0.99, 1, 1],
     },
     labels: [
       "Jan",
