@@ -1,0 +1,22 @@
+.body{
+/* background: conic-gradient(from 180deg at 50% 50%, rgba(80, 97, 135, 0) -3.8deg, #506187 39.45deg, rgba(80, 97, 135, 0) 174.68deg, #506187 290.28deg, rgba(80, 97, 135, 0) 356.2deg, #506187 399.45deg);
+max-height: 70vh;
+/* background-color: red; */
+background: linear-gradient(116.82deg, #060B27 0%, #2F014C 100%);
+
+}
+
+.positiv{
+    /* Rectangle 33 */
+
+position: absolute;
+width: 52px;
+height: 22px;
+left: 707px;
+top: 439px;
+
+background: #c587c5;
+border-radius: 8px;
+transform: matrix(1, 0, 0, -1, 0, 0);
+
+}
