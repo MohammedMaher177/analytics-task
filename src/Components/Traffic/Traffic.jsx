@@ -27,7 +27,6 @@ export default function Traffic() {
       toolbar: {
         tools: false,
       },
-      
     },
     forecastDataPoints: {
       count: 12,
@@ -78,15 +77,11 @@ export default function Traffic() {
     },
     yaxis: [
       {
+        opposite: false,
         title: {
           text: "",
         },
-      },
-      {
-        opposite: true,
-        title: {
-          text: "",
-        },
+        categories: [-100, -50, 0, 50, 100, 200, 250, 300],
       },
     ],
   };
@@ -97,14 +92,14 @@ export default function Traffic() {
         // background: "linear-gradient(116.82deg, #060B27 0%, #2F014C 100%)",
         background: "transparent",
         // filter:"drop-shadow(10px 10px 25px rgba(0, 0, 0, 0.25))",
-        height:"60vh"
+        height: "60vh",
       }}
     >
       <TrafficHeader />
       <Chart
         options={options}
         series={options.series}
-        height="650"
+        height="550"
         type="line"
         width="100%"
       >
