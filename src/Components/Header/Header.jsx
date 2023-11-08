@@ -1,110 +1,49 @@
+import { Box, FormControl, MenuItem, Select, Typography } from "@mui/material";
 import { useState } from "react";
-import Chart from "react-apexcharts";
 
 export default function Header() {
-  const columnsData = [-50, 20, 165, -30, 110, 80, -70, 165, 90, 70, -95, 100];
-  const linesData = [-60, -10, 175, 25, 120, 90, -90, 175, 80, 70, -100, 115];
-//   const bg = columnsData.map((el) => (el >= 0 ? "#080008" : "#c587c5"));
-  // eslint-disable-next-line no-unused-vars
-  const [options, setoptions] = useState({
-    series: [
-      {
-        name: "",
-        type: "column",
-        data: columnsData,
-      },
-      {
-        name: "",
-        type: "line",
-        data: linesData,
-      },
-    ],
-    noData: {
-      text: "Loading...",
-    },
-    chart: {
-      height: "350",
-      type: "line",
-    },
-    forecastDataPoints: {
-      count: 12,
-    },
-    stroke: {
-      width: [0, 2],
-      height:[0, 10]
-    },
-    title: {
-      text: "Traffic Sources",
-    },
-    markers: {
-      //   colors: bg,
-    },
-    // colors: bg,
-    dataLabels: {
-      enabled: true,
-      enabledOnSeries: [1],
-    },
-    fill: {
-      type: "solid",
-      pattern: {
-        style: "circles",
-        width: 6,
-        height: 6,
-        strokeWidth: 2,
-      },
-      colors: [
-        function ({ value }) {
-          if (value < 0) {
-            return "#FB4540";
-          } else {
-            return "#0082CC";
-          }
-        },
-      ],
-      //   opacity: [0.98, 0.99, 1, 1],
-    },
-    labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-    xaxis: {
-      type: "date",
-    },
-    yaxis: [
-      {
-        title: {
-          text: "Website Blog",
-        },
-      },
-      {
-        opposite: true,
-        title: {
-          text: "Social Media",
-        },
-      },
-    ],
-  });
+  const [value, setValue] = useState("User Name");
+
+
+
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
   return (
-    <div>
-      <Chart
-        options={options}
-        series={options.series}
-        height="850"
-        type="line"
-        width="100%"
-      >
-        solved
-      </Chart>
-    </div>
+    <Box sx={{ display: " flex", justifyContent: "space-between", textAlign:"left" }}>
+      <Box>
+        <Typography component="h2">User Analytics</Typography>
+        <Typography component="p">
+          Lorem ipsum dolor sit consectetur.
+        </Typography>
+      </Box>
+      <Box>
+      <FormControl
+          sx={{
+            width: "135px",
+            border: "1px solid rgba(174, 171, 216, 0.4)",
+            borderRadius: "6px",
+            color: "#8C89B4",
+          }}
+        >
+          <Select
+            value={value}
+            onChange={handleChange}
+            sx={{
+              color: "#8C89B4",
+              " .MuiSvgIcon-root": {
+                color: "#8C89B4",
+              },
+            }}
+          >
+            <MenuItem value="User Name">User Name</MenuItem>
+            <MenuItem value="profile">Profile</MenuItem>
+            <MenuItem value="Settings">Settings</MenuItem>
+            <MenuItem value="log out">Log out</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+    </Box>
   );
 }

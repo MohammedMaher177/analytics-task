@@ -1,32 +1,13 @@
-.body{
-/* background: conic-gradient(from 180deg at 50% 50%, rgba(80, 97, 135, 0) -3.8deg, #506187 39.45deg, rgba(80, 97, 135, 0) 174.68deg, #506187 290.28deg, rgba(80, 97, 135, 0) 356.2deg, #506187 399.45deg);
-max-height: 70vh;
-/* background-color: red; */
-background: linear-gradient(116.82deg, #060B27 0%, #2F014C 100%);
-
-}
-
-.positiv{
-    /* Rectangle 33 */
+.p{
+    /* Rectangle 45 */
 
 position: absolute;
-width: 52px;
-height: 22px;
-left: 707px;
-top: 439px;
-/* Rectangle 21 */
-/* Rectangle 30 */
+width: 48px;
+height: 48px;
+left: 65px;
+top: 155px;
 
-position: absolute;
-width: 52px;
-height: 51px;
-left: 476px;
-top: 468px;
-
-background: #FB4540;
-border-radius: 8px;
-transform: matrix(1, 0, 0, -1, 0, 0);
-
-
+background: linear-gradient(0deg, #3F46F7, #3F46F7), radial-gradient(87.91% 69.48% at 12.09% 8.37%, rgba(37, 77, 105, 0.2) 8.99%, rgba(37, 77, 105, 0) 100%), rgba(9, 24, 35, 0.05);
+border-radius: 10px;
 
 }

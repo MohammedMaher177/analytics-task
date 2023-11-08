@@ -5,9 +5,9 @@ import Home from './Pages/Home/Home.jsx'
 function App() {
 
   return (
-    <>
+    <div className='body'>
       <Home />
-    </>
+    </div>
   )
 }
 
