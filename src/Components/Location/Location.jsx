@@ -1,28 +1,41 @@
 import Chart from "react-apexcharts";
 
 export default function Location() {
-  const a = [50, 20, 165, -30, 110, 80, -70, 165, 90, 70, -95, 100];
-  const b = [30, -10, 175, 25, 120, 90, -90, 175, 80, 70, -100, 115];
-  const c = [20, -10, 175, 25, 120, 90, -90, 175, 80, 70, -100, 115];
+  const a = [300, 55, 41, 67, 22, 43, 21, 49];
+  const b = [900, 23, 20, 8, 13, 27, 33, 12];
+  const c = [200, 17, 15, 15, 21, 14, 15, 13];
   const options = {
     chart: {
       type: "bar",
       height: 350,
       stacked: true,
-      stackType: "100%",
+      stackType: `$${3}K`,
+      // stackType: `100%`,
+    },
+    stroke: {
+      width: [20, 20, 20],
+      position: "center",
+      borderRadius: 0,
     },
     plotOptions: {
       bar: {
-        borderRadius: 10,
+        borderRadius: [0, 0, 0],
         dataLabels: {
           position: "center", // top, center, bottom
+          total: {
+            enabled: false,
+            style: {
+              fontSize: "13px",
+              fontWeight: 900,
+            },
+          },
         },
       },
     },
     dataLabels: {
-      enabled: false,
+      enabled: true,
       formatter: function (val) {
-        return val + "K";
+        return Math.round(val) + "K";
       },
     },
     responsive: [
@@ -39,7 +52,7 @@ export default function Location() {
     ],
     xaxis: {
       categories: [
-        "2011 Q1",
+        "1",
         "2011 Q2",
         "2011 Q3",
         "2011 Q4",
@@ -49,30 +62,120 @@ export default function Location() {
         "2012 Q4",
       ],
     },
+    yaxis: {
+      type: "time",
+      categories: ["1", "2", "3", "4"],
+    },
     fill: {
       opacity: 1,
-      colors: ["#FB4540", "#00F2DE", ""],
+      // colors: ["#FB4540", "#00F2DE", ""],
+      // type: "gradient",
+      // gradient: {
+      //   colorFrom: "#D8E3F0",
+      //   colorTo: "#BED1E6",
+      //   stops: [50, 100],
+      //   opacityFrom: 0.6,
+      //   opacityTo: 0.8,
+      // },
+      style: {
+        width: "5px",
+      },
     },
     legend: {
+      show: false,
       position: "right",
       offsetX: 0,
       offsetY: 50,
     },
   };
-  const series = [
+  const series =  [
     {
-      name: "PRODUCT A",
-      data: [300, 55, 41, 67, 22, 43, 21, 49],
-    },
-    {
-      name: "PRODUCT B",
-      data: [900, 23, 20, 8, 13, 27, 33, 12],
-    },
-    {
-      name: "PRODUCT C",
-      data: [1800, 17, 15, 15, 21, 14, 15, 13],
-    },
-  ];
+      name: 'Actual',
+      data: [
+        {
+          x: '2011',
+          y: 12,
+          goals: [
+            {
+              name: 'Expected',
+              value: 14,
+              strokeWidth: 2,
+              strokeDashArray: 2,
+              strokeColor: '#775DD0'
+            }
+          ]
+        },
+        {
+          x: '2012',
+          y: 44,
+          goals: [
+            {
+              name: 'Expected',
+              value: 54,
+              strokeWidth: 5,
+              strokeHeight: 10,
+              strokeColor: '#775DD0'
+            }
+          ]
+        },
+        {
+          x: '2013',
+          y: 54,
+          goals: [
+            {
+              name: 'Expected',
+              value: 52,
+              strokeWidth: 10,
+              strokeHeight: 0,
+              strokeLineCap: 'round',
+              strokeColor: '#775DD0'
+            }
+          ]
+        },
+        {
+          x: '2014',
+          y: 66,
+          goals: [
+            {
+              name: 'Expected',
+              value: 61,
+              strokeWidth: 10,
+              strokeHeight: 0,
+              strokeLineCap: 'round',
+              strokeColor: '#775DD0'
+            }
+          ]
+        },
+        {
+          x: '2015',
+          y: 81,
+          goals: [
+            {
+              name: 'Expected',
+              value: 66,
+              strokeWidth: 10,
+              strokeHeight: 0,
+              strokeLineCap: 'round',
+              strokeColor: '#775DD0'
+            }
+          ]
+        },
+        {
+          x: '2016',
+          y: 67,
+          goals: [
+            {
+              name: 'Expected',
+              value: 70,
+              strokeWidth: 5,
+              strokeHeight: 10,
+              strokeColor: '#775DD0'
+            }
+          ]
+        }
+      ]
+    }
+  ]
   return (
     <Chart
       options={options}
